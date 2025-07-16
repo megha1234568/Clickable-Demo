@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sidebar Menu with Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  
+<div class="containers">
+    <div class="sidebar-wrapper">
+      <div class="sidebar">
+        <div class="avatar-wrapper">
+          
+        </div>
+        <nav>
+          <ul class="menu">
+            <li><a href="#" id="newFileBtn">New File</a></li>
+            <li><a href="#">Open File</a></li>
+            <li><a href="#">Save File</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div> 
+<div class="container">
+    <!-- Right Panel -->
+    <div class="form-panel" id="formPanel">
+      <div class="progress-bar">
+        <div class="step active">Upload</div>
+        <div class="step">Scan & Match</div>
+        <div class="step">Identify</div>
+        <div class="step">Generate</div>
+      </div>
+
+      <div class="form-steps">
+        <div class="form-step active">
+          <h2>Upload P&ID / SCADA / Program</h2>
+          <label for="pidUpload">Upload P&ID:</label><br>
+          <input type="file" id="pidUpload" name="P&ID"><br><br>
+
+          <label for="scadaUpload">Upload SCADA:</label><br>
+          <input type="file" id="scadaUpload" name="SCADA"><br><br>
+
+          <label for="programUpload">Upload Program:</label><br>
+          <input type="file" id="programUpload" name="Program"><br><br>
+          <button onclick="nextStep()">Next</button>
+        </div>
+
+        <div class="form-step">
+  <h2>Scan & Match</h2>
+
+  <table class="match-table">
+    <thead>
+      <tr>
+        <th>P&ID Tag</th>
+        <th>Program Tag</th>
+        <th>Match Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>FT-101</td><td>FT-101</td><td class="match">✔ Match</td></tr>
+      <tr><td>LT-202</td><td>LT-200</td><td class="mismatch">✘ Mismatch</td></tr>
+      <tr><td>TT-303</td><td>TT-303</td><td class="match">✔ Match</td></tr>
+      <tr><td>PT-404</td><td>PT-405</td><td class="mismatch">✘ Mismatch</td></tr>
+      <tr><td>XT-505</td><td>XT-505</td><td class="match">✔ Match</td></tr>
+      <tr><td>YT-606</td><td>YT-606</td><td class="match">✔ Match</td></tr>
+      <tr><td>FT-707</td><td>FT-708</td><td class="mismatch">✘ Mismatch</td></tr>
+      <tr><td>LT-808</td><td>LT-808</td><td class="match">✔ Match</td></tr>
+      <tr><td>TT-909</td><td>TT-910</td><td class="mismatch">✘ Mismatch</td></tr>
+      <tr><td>PT-010</td><td>PT-010</td><td class="match">✔ Match</td></tr>
+      <tr><td>MT-111</td><td>MT-111</td><td class="match">✔ Match</td></tr>
+      <tr><td>NT-121</td><td>NT-120</td><td class="mismatch">✘ Mismatch</td></tr>
+      <tr><td>FT-131</td><td>FT-131</td><td class="match">✔ Match</td></tr>
+      <tr><td>LT-141</td><td>LT-142</td><td class="mismatch">✘ Mismatch</td></tr>
+      <tr><td>TT-151</td><td>TT-151</td><td class="match">✔ Match</td></tr>
+      <tr><td>PT-161</td><td>PT-161</td><td class="match">✔ Match</td></tr>
+      <tr><td>ZT-171</td><td>ZT-170</td><td class="mismatch">✘ Mismatch</td></tr>
+      <tr><td>RT-181</td><td>RT-181</td><td class="match">✔ Match</td></tr>
+      <tr><td>ST-191</td><td>ST-192</td><td class="mismatch">✘ Mismatch</td></tr>
+      <tr><td>WT-201</td><td>WT-201</td><td class="match">✔ Match</td></tr>
+    </tbody>
+  </table>
+
+  <button onclick="nextStep()">Next</button>
+</div>
+
+
+        <div class="form-step">
+  <h2>Identify Equipment and Modules</h2>
+
+  <table class="match-table">
+    <thead>
+      <tr>
+        <th>Equipment Tag</th>
+        <th>Equipment Type</th>
+        <th>Matched Module</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>FT-101</td><td>Flow Transmitter</td><td class="match">Analog Input</td></tr>
+      <tr><td>LT-202</td><td>Level Transmitter</td><td class="mismatch">Analog Input (Mismatch)</td></tr>
+      <tr><td>TT-303</td><td>Temperature Transmitter</td><td class="match">Analog Input</td></tr>
+      <tr><td>PT-404</td><td>Pressure Transmitter</td><td class="mismatch">Analog Input (Mismatch)</td></tr>
+      <tr><td>XT-505</td><td>Position Sensor</td><td class="match">Digital Input</td></tr>
+      <tr><td>YT-606</td><td>Valve Actuator</td><td class="match">Digital Output</td></tr>
+      <tr><td>FT-707</td><td>Flow Transmitter</td><td class="mismatch">Analog Input (Mismatch)</td></tr>
+      <tr><td>LT-808</td><td>Level Transmitter</td><td class="match">Analog Input</td></tr>
+      <tr><td>TT-909</td><td>Temperature Transmitter</td><td class="mismatch">Analog Input (Mismatch)</td></tr>
+      <tr><td>PT-010</td><td>Pressure Transmitter</td><td class="match">Analog Input</td></tr>
+      <tr><td>MT-111</td><td>Motor</td><td class="match">VFD Output</td></tr>
+      <tr><td>NT-121</td><td>Proximity Sensor</td><td class="mismatch">Digital Input (Mismatch)</td></tr>
+      <tr><td>FT-131</td><td>Flow Transmitter</td><td class="match">Analog Input</td></tr>
+      <tr><td>LT-141</td><td>Level Transmitter</td><td class="mismatch">Analog Input (Mismatch)</td></tr>
+      <tr><td>TT-151</td><td>Temp Transmitter</td><td class="match">Analog Input</td></tr>
+      <tr><td>PT-161</td><td>Pressure Transmitter</td><td class="match">Analog Input</td></tr>
+      <tr><td>ZT-171</td><td>Unknown Device</td><td class="mismatch">Unknown Module</td></tr>
+      <tr><td>RT-181</td><td>Relay</td><td class="match">Digital Output</td></tr>
+      <tr><td>ST-191</td><td>Solenoid</td><td class="mismatch">Digital Output (Mismatch)</td></tr>
+      <tr><td>WT-201</td><td>Weigh Scale</td><td class="match">Analog Input</td></tr>
+    </tbody>
+  </table>
+
+  <button onclick="nextStep()">Next</button>
+</div>
+
+        <div class="form-step">
+  <h2>Generated Animated Graphic</h2>
+
+  <div class="process-flow">
+    <div class="device" style="--icon: '💧'">FT-101</div>
+    <div class="arrow">→</div>
+    <div class="device" style="--icon: '🌡️'">TT-303</div>
+    <div class="arrow">→</div>
+    <div class="device alert" style="--icon: '⚠️'">LT-202</div>
+    <div class="arrow">→</div>
+    <div class="device" style="--icon: '⚙️'">Motor</div>
+  </div>
+
+  <div class="alerts">
+    <h3>⚠ Alerts:</h3>
+    <ul>
+      <li><strong>LT-202:</strong> Tag mismatch in SCADA vs Program</li>
+      <li><strong>ZT-171:</strong> Unknown device type detected</li>
+    </ul>
+  </div>
+
+  <button onclick="resetForm()">Finish</button>
+</div>
+
+      </div>
+    </div>
+    </div>
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
+
