@@ -289,7 +289,393 @@ button {
 }
 
 
+.process-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            width: 100%;
+        }
 
+        .process-layout {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .main-tank-system {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .main-tank {
+            width: 200px;
+            height: 180px;
+            background: linear-gradient(180deg, #e0e0e0 0%, #c0c0c0 100%);
+            border: 3px solid #888;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .tank-top {
+            position: absolute;
+            top: -8px;
+            left: 20px;
+            right: 20px;
+            height: 15px;
+            background: #888;
+            border-radius: 8px;
+            border: 2px solid #666;
+        }
+
+        .tank-top::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 8px;
+            background: #666;
+            border-radius: 4px;
+        }
+
+        .main-liquid {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, #00bfff 0%, #0080ff 50%, #0060dd 100%);
+            transition: height 3s ease-in-out;
+            border-radius: 0 0 12px 12px;
+        }
+
+        .main-liquid::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.3);
+            animation: mainWave 3s ease-in-out infinite;
+            border-radius: 4px;
+        }
+
+        @keyframes mainWave {
+            0%, 100% { transform: translateX(0) scaleX(1); }
+            25% { transform: translateX(8px) scaleX(0.95); }
+            75% { transform: translateX(-8px) scaleX(1.05); }
+        }
+
+        .ladder {
+            position: absolute;
+            right: -15px;
+            top: 20px;
+            bottom: 20px;
+            width: 12px;
+            background: #666;
+            border-radius: 6px;
+        }
+
+        .ladder::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            background: repeating-linear-gradient(
+                to bottom,
+                transparent 0px,
+                transparent 8px,
+                #666 8px,
+                #666 10px
+            );
+        }
+
+        .support-legs {
+            position: absolute;
+            bottom: -25px;
+            left: 10px;
+            right: 10px;
+            height: 25px;
+            background: linear-gradient(90deg, #666 0%, #666 15%, transparent 15%, transparent 85%, #666 85%, #666 100%);
+        }
+
+        .pipe-system {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .pipe-horizontal {
+            width: 200px;
+            height: 12px;
+            background: linear-gradient(180deg, #a0a0a0 0%, #707070 100%);
+            border: 1px solid #555;
+            border-radius: 6px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        
+       
+
+        .flow-animation {
+            position: absolute;
+            background: rgba(0, 191, 255, 0.7);
+            border-radius: 3px;
+        }
+
+        .pipe-horizontal .flow-animation {
+            top: 2px;
+            bottom: 2px;
+            width: 25px;
+            left: -25px;
+            animation: flowHorizontal 2.5s infinite linear;
+        }
+
+       
+
+        @keyframes flowHorizontal {
+            0% { left: -25px; }
+            100% { left: 100%; }
+        }
+
+        @keyframes flowVertical {
+            0% { top: -20px; }
+            100% { top: 100%; }
+        }
+
+        .small-tanks {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .small-tank-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .small-tank {
+            width: 80px;
+            height: 100px;
+            background: linear-gradient(180deg, #e0e0e0 0%, #c0c0c0 100%);
+            border: 2px solid #888;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .small-tank::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 10px;
+            right: 10px;
+            height: 8px;
+            background: #888;
+            border-radius: 4px;
+            border: 1px solid #666;
+        }
+
+        .small-liquid {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, #00bfff 0%, #0080ff 50%, #0060dd 100%);
+            transition: height 2s ease-in-out;
+            border-radius: 0 0 6px 6px;
+        }
+
+        .small-liquid::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            animation: smallWave 2s ease-in-out infinite;
+            border-radius: 2px;
+        }
+
+        @keyframes smallWave {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(3px); }
+        }
+
+        .tank2 .small-liquid {
+            background: linear-gradient(180deg, #ffa500 0%, #ff8c00 50%, #ff4500 100%);
+            animation: warningPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes warningPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .control-box {
+            width: 25px;
+            height: 25px;
+            background: #666;
+            border: 1px solid #444;
+            border-radius: 3px;
+            position: relative;
+        }
+
+        .control-box::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background: #00ff00;
+            border-radius: 50%;
+            animation: statusBlink 2s infinite;
+        }
+
+        @keyframes statusBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .tank-label {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: bold;
+            border: 1px solid #ccc;
+        }
+
+        .main-label {
+            top: 10px;
+            left: 10px;
+        }
+
+        .small-label {
+            top: 5px;
+            left: 5px;
+        }
+
+        .level-display {
+            background: #333;
+            color: #00ff00;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 9px;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+            margin-top: 5px;
+        }
+
+        .alert-popup {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
+            color: white;
+            padding: 20px 25px;
+            border-radius: 8px;
+            box-shadow: 0 8px 25px rgba(255, 68, 68, 0.4);
+            transform: translateX(400px);
+            transition: transform 0.5s ease;
+            z-index: 1000;
+            min-width: 300px;
+            border: 2px solid #990000;
+        }
+
+        .alert-popup.show {
+            transform: translateX(0);
+        }
+
+        .alert-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .alert-icon {
+            font-size: 24px;
+            animation: alertBlink 1s infinite;
+        }
+
+        @keyframes alertBlink {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+        }
+
+        .alert-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0.8;
+        }
+
+        .alert-close:hover {
+            opacity: 1;
+        }
+
+        .bubbles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            animation: bubbleRise 4s infinite linear;
+        }
+
+        @keyframes bubbleRise {
+            0% {
+                opacity: 0;
+                transform: translateY(20px) scale(0);
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(15px) scale(1);
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-30px) scale(0);
+            }
+        }
 
 
 
