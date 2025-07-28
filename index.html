@@ -125,74 +125,27 @@
 
   <button onclick="nextStep()">Next</button>
 </div>
+<div class="form-step">
+  <h2>Generated P&ID Graphic with Alert</h2>
 
-        <div class="form-step">
-  <h2>Generated Animated Graphic</h2>
+  <!-- Static Image in place of animation -->
+  <div class="image-container">
+    <img src="images/pump.png" alt="Tank System Overview" style="width:100%; max-width:600px;">
+  </div>
 
-  <div class="process-container">
-        <div class="process-layout">
-            <!-- Main Tank System -->
-            <div class="main-tank-system">
-                <div class="main-tank" id="mainTank">
-                    <div class="tank-top"></div>
-                    <div class="main-liquid" id="mainLiquid"></div>
-                    <div class="ladder"></div>
-                    <div class="support-legs"></div>
-                    <div class="tank-label main-label">TANK 100 gal</div>
-                    <div class="bubbles" id="mainBubbles"></div>
-                </div>
-                <div class="level-display" id="mainLevel">65%</div>
-            </div>
-
-            <!-- Pipe System -->
-            <div class="pipe-system">
-                <div class="pipe-horizontal">
-                    <div class="flow-animation"></div>
-                </div>
-                <div class="pipe-horizontal">
-                    <div class="flow-animation"></div>
-                </div>
-                
-            </div>
-
-            <!-- Small Tanks -->
-            <div class="small-tanks">
-                <div class="small-tank-container">
-                    <div class="small-tank tank1" id="smallTank1">
-                        <div class="small-liquid" id="smallLiquid1"></div>
-                        <div class="tank-label small-label">Tank 15 gal</div>
-                        <div class="bubbles" id="smallBubbles1"></div>
-                    </div>
-                    <div class="control-box"></div>
-                    <div class="level-display" id="smallLevel1">45%</div>
-                </div>
-
-                <div class="small-tank-container">
-                    <div class="small-tank tank2" id="smallTank2">
-                        <div class="small-liquid" id="smallLiquid2"></div>
-                        <div class="tank-label small-label">Tank 15 gal</div>
-                        <div class="bubbles" id="smallBubbles2"></div>
-                    </div>
-                    <div class="control-box"></div>
-                    <div class="level-display" id="smallLevel2">85%</div>
-                </div>
-            </div>
-        </div>
+  <!-- Alert Popup -->
+  <div class="alert-popup" id="alertPopup">
+    <button class="alert-close" onclick="closeAlert()">×</button>
+    <div class="alert-header">
+      <span class="alert-icon">⚠️</span>
+      <span>High Level Alert</span>
     </div>
-
-    <!-- Alert Popup -->
-    <div class="alert-popup" id="alertPopup">
-        <button class="alert-close" onclick="closeAlert()">×</button>
-        <div class="alert-header">
-            <span class="alert-icon">⚠️</span>
-            <span>High Level Alert</span>
-        </div>
-        <div>Tank level critically high at 85%! Check overflow system.</div>
-    </div>
-
+    <div>Alert A_301 is running when FT_301 closed Wasted Energy.</div>
+  </div>
 
   <button onclick="resetForm()">Finish</button>
 </div>
+
 
       </div>
     </div>
